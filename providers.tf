@@ -10,7 +10,7 @@ terraform {
 
   backend "s3" {
     bucket       = "terraform-state-asl-foundation"
-    key          = "foundation/terraform.tfstate"
+    key          = "organization/terraform.tfstate"
     region       = "us-west-2"
     encrypt      = true
     use_lockfile = true
@@ -24,7 +24,7 @@ provider "aws" {
   default_tags {
     tags = {
       terraform_managed = true
-      account           = "foundation"
+      account           = "organization"
     }
   }
 }
