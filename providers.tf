@@ -19,12 +19,16 @@ terraform {
 
 provider "aws" {
   region = "us-west-2"
-  alias  = "management"
-
   default_tags {
     tags = {
       terraform_managed = true
       account           = "organization"
     }
   }
+}
+
+data "aws_caller_identity" "current" {}
+
+output "account_id" {
+  value = data.aws_caller_identity.current.account_id
 }
